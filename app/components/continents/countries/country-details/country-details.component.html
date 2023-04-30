@@ -1,0 +1,58 @@
+<div class="country-details-container" fxLayout="column" fxLayoutAlign="center center">
+
+    <div *ngIf="loading$ | async" class="mt20">
+        <mat-spinner diameter="50"></mat-spinner>
+    </div>
+
+    <div class="container">
+        <div [hidden]="(loading$ | async)">
+
+
+            <h1>
+                {{countryInfo?.name?.official}}
+            </h1>
+
+            <div class="details-container" fxLayout="column" fxLayoutAlign="space-between center">
+
+                <div fxLayout="row" fxLayoutAlign="space-around center" class="w100 mt20" fxFlex="50%">
+
+                    <img [src]="countryInfo?.flags?.png" [alt]="countryInfo?.flags?.alt">
+
+                    <span class="fifa fw500">
+                        {{countryInfo?.fifa}}
+                    </span>
+                </div>
+
+                <div class="w100" fxLayoutAlign=" start" fxLayout="column" fxFlex="50%">
+
+                    <div fxFlex="33.33%" class="additionalInfo w100" fxLayoutAlign=" center">
+                        <span class="fw500 ml10">
+                            Capital:
+                        </span>
+                        <span class="ml10">
+                            {{countryInfo?.capital}}
+                        </span>
+                    </div>
+
+                    <div fxFlex="33.33%" class="additionalInfo w100" fxLayoutAlign=" center">
+                        <span class="fw500 ml10">
+                            Currency:
+                        </span>
+                        <span *ngFor="let currency of countryInfo?.currencies" class="ml10">
+                            {{currency}}
+                        </span>
+                    </div>
+
+                    <div fxFlex="33.33%" class="additionalInfo w100" fxLayoutAlign=" center">
+                        <span class="fw500 ml10">
+                            Population:
+                        </span>
+                        <span class="ml10">
+                            {{countryInfo?.population}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

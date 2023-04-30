@@ -1,0 +1,39 @@
+<div class="countries-containrer w100" fxLayout="column" fxLayoutAlign="center center">
+
+    <div *ngIf="loading$ | async">
+        <mat-spinner diameter="50"></mat-spinner>
+    </div>
+
+    <div class="container" fxLayout="column">
+
+        <div [hidden]="(loading$ | async)">
+
+            <h1>Region: {{regionName}}</h1>
+
+            <div fxLayoutAlign="center center" fxLayout="column">
+
+                <div class="container-table">
+
+                    <mat-table mat-table [dataSource]="dataSource" matSort>
+
+                        <ng-container matColumnDef="flag">
+                            <mat-cell *matCellDef="let country" fxFlex="25%" (click)="openCountryDetails(country)">
+                                <img [src]="country.flags.png" alt="">
+                            </mat-cell>
+                        </ng-container>
+
+                        <ng-container matColumnDef="name">
+                            <mat-cell *matCellDef="let country" fxFlex='70%' (click)="openCountryDetails(country)">
+                                <span class="w90">
+                                    {{ country?.name.official | titlecase }}
+                                </span>
+                            </mat-cell>
+                        </ng-container>
+                        <mat-row class="cursor" *matRowDef="let row; columns: [ 'flag', 'name']"></mat-row>
+                    </mat-table>
+                    <mat-paginator [pageSizeOptions]="[20, 20, 50]" showFirstLastButtons></mat-paginator>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

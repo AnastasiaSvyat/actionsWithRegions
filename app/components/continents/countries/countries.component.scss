@@ -1,0 +1,41 @@
+.container {
+    width: 65%;
+
+    .container-table {
+        width: 60%;
+    }
+
+    mat-table {
+        mat-row {
+            box-shadow: 0px 0px 20px rgba(26, 35, 126, 0.15);
+            margin-top: 8px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            border-top: none;
+            cursor: pointer;
+        }
+
+        mat-row:hover {
+            background-color: #f1fffe;
+        }
+
+        mat-cell {
+            height: 48px;
+            font-weight: 400;
+
+            img {
+                width: 90px;
+                height: 43px;
+                border: 0.5px solid black;
+            }
+        }
+
+        mat-header-cell,
+        mat-cell {
+            font-family: 'Open Sans';
+            color: #53384e;
+            font-size: 14px;
+            line-height: 19.07px;
+        }
+    }
+}

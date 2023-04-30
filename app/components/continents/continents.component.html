@@ -1,0 +1,14 @@
+<div class="continents-container" fxLayoutAlign="center center">
+    <div class="container" fxLayout="row wrap" fxLayoutAlign="space-evenly center">
+        <div class="continentItem mt20" fxLayoutAlign="space-around center" fxLayout="column" fxFlex="26"
+            *ngFor="let continent of continents" (click)="openCountriesList(continent.name)">
+            <span class="fw100">
+                {{continent.name}}
+            </span>
+
+            <div class="container-img">
+                <img [src]="continent?.img" alt="img">
+            </div>
+        </div>
+    </div>
+</div>
